@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from src.evolve import Evolve
 from src.generation import Generation
@@ -14,7 +14,7 @@ def main():
     gene_min_value = 0
     gene_max_value = 255
     unit_genes_size = 100
-    generation_unit_size = 100
+    generation_unit_size = 200
     generation_mutation_chance = 25  # [0-100]
     evolve_delta_stop = 250
 
