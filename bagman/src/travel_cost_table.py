@@ -29,6 +29,9 @@ class TravelCostTable:
         return travel_cost_table
 
     def create_travel_cost_table_const(self):
+        if self.table_size != 100:
+            raise ValueError("Method 'create_travel_cost_table_const' works only for table_size equals 100. Use method 'create_travel_cost_table'.")
+
         travel_cost_table = TravelCostTable(self.random, self.table_size)
         travel_cost_table.costs = [
             [ 0, 55, 46, 10, 19, 39, 32, 53, 19, 18, 19, 25, 52, 45, 45, 18, 30, 16, 48, 48, 43, 32, 10, 13, 35, 33, 40, 19, 55, 23, 28, 57, 12, 45, 31, 56, 57, 50, 30, 54, 50, 60, 23, 15, 22, 50, 42, 48, 52, 43, 18, 30, 49, 13, 16, 16, 13, 31, 44, 44, 60, 38, 27, 32, 18, 43, 26, 26, 29, 58, 38, 19, 10, 17, 23, 39, 24, 37, 17, 55, 41, 17, 16, 46, 50, 60, 32, 26, 55, 28, 24, 16, 28, 54, 29, 38, 46, 50, 35, 41],

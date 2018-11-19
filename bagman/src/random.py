@@ -11,3 +11,6 @@ class Random:
 
     def rand(self):
         return random.randint(self.random_min, self.random_max)
+
+    def rand_range(self, min, max):
+        return random.randint(min, max)

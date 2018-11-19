@@ -16,15 +16,19 @@ class Unit:
     def create_unit(self):
         unit = Unit(self.random, self.travel_cost_table, self.genes_size)
         unit.genes = [self.random.rand() for x in range(self.genes_size)]
+
         return unit
 
-    def create_child(self, parent_first, parent_second, cross_index, mutation):
+    def create_child(self, parent_first, parent_second):
+        cross_index = self.random.rand_range(0, self.genes_size - 1)
         child = Unit(self.random, self.travel_cost_table, self.genes_size)
         child.genes = parent_first.genes[:cross_index] + parent_second.genes[cross_index:]
-        if mutation:
-            child.genes[self.random.rand() & self.genes_size - 1] = self.random.rand()
 
         return child
+
+    def mutation(self):
+        mutation_index = self.random.rand_range(0, self.genes_size - 1)
+        self.genes[mutation_index] = self.random.rand()
 
     def get_route(self):
         route = {}

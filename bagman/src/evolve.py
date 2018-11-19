@@ -9,8 +9,10 @@ class Evolve:
         return 'Evolve: [generation: {}]'.format(self.generation)
 
     def get_scores(self):
-        # units = sorted(self.generation.units, key=lambda x: x.score)
         return sorted([x.score for x in self.generation.units])
+
+    def get_best_score(self):
+        return sorted(self.generation.units, key=lambda x: x.score)[0]
 
     def run(self):
         last_score = 0
@@ -20,10 +22,13 @@ class Evolve:
             infinite_idx += 1
             multiplication = self.generation.create_multiplication()
             self.generation = self.generation.elimination(self.generation, multiplication)
-            print('Iteration: {}, Scores: {}'.format(infinite_idx, self.get_scores()[0]))
+
+            if (infinite_idx % 100) == 0:
+                print('Iteration: {}, Scores: {}'.format(infinite_idx, self.get_scores()[0]))
+
             if last_score != self.get_scores()[0]:
                 last_score = self.get_scores()[0]
                 last_score_idx = infinite_idx
 
             if infinite_idx - last_score_idx > self.delta_stop:
-                break;
+                break
