@@ -4,7 +4,7 @@ from src.evolve import Evolve
 from src.generation import Generation
 from src.random import Random
 from src.travel_cost_table import TravelCostTable
-from src.unit import Unit
+from src.specimen import Specimen
 
 
 def main():
@@ -31,13 +31,13 @@ def main():
     print(travel_cost_table)
 
     gene_random = Random(gene_random_value_min, gene_random_value_max)
-    unit = Unit(gene_random, travel_cost_table, gene_size)
+    specimen = Specimen(gene_random, travel_cost_table, gene_size)
     generation_random = Random(generation_random_idx_min, generation_random_idx_max)
-    generation = Generation(generation_random, unit, generation_mutation_count, generation_size)
+    generation = Generation(generation_random, specimen, generation_mutation_count, generation_size)
     evolve = Evolve(generation, evolve_delta_stop)
 
     print(gene_random)
-    print(unit)
+    print(specimen)
     print(generation_random)
     print(generation)
     print(evolve)

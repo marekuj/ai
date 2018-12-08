@@ -9,10 +9,10 @@ class Evolve:
         return 'Evolve: [generation: {}]'.format(self.generation)
 
     def get_scores(self):
-        return sorted([x.score for x in self.generation.units])
+        return sorted([x.score for x in self.generation.specimens])
 
     def get_best_score(self):
-        return sorted(self.generation.units, key=lambda x: x.score)[0]
+        return sorted(self.generation.specimens, key=lambda x: x.score)[0]
 
     def run(self):
         last_score = 0
